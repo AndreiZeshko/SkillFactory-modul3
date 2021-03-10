@@ -15,13 +15,14 @@ def show():
 def ask():
     while True:
         x, y = map(int, input("ход:").split())
-        if x <= 0 or x >= 2 or y <= 0 or y >= 2 :
-            if  field[x][y] == " ":
-                return x, y
-            else:
-                print(" Занято")
-        else:
-            print("кординаты не верны")
+        if x < 0 or x > 2 or y < 0 or y > 2:
+            print(" Координаты вне диапазона! ")
+            continue
+        if field[x][y] != " ":
+            print(" Клетка занята! ")
+            continue
+
+        return x, y
 
 
 def win():
